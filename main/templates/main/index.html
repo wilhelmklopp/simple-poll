@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Poll</title>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'main/favicon.ico' %}"
+
+    <!-- Roboto Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'main/startbootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'main/startbootstrap/css/one-page-wonder.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="{% static 'main/simplepolllogo-colors.png' %}" width="30px" height="30px"></a>
+                <a class="navbar-brand" href="#" style="font-size: 30px; padding-top: 20px;">Simple Poll</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://slack.com/oauth/authorize?scope=commands,reactions:write,chat:write:bot&client_id=16839103392.17540259856&state={{state}}"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container greeting-text">
+                <div class="logo">
+                    <img class ="img-responsive" src="{% static 'main/simplepolllogo-colors.png' %}">
+                </div>
+                <h1>Simple Poll</h1>
+                <a href="https://slack.com/oauth/authorize?scope=commands,reactions:write,chat:write:bot&client_id=16839103392.17540259856&state={{state}}"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Explain text -->
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="explain">
+                    <h3>Simple Poll&trade; is the easiest way to create polls in Slack. It's quick, and more importantly it's native. Everything happens right within Slack. We do not store your poll data anywhere and you do not have to go to our website to see the results.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Just type:<b> /poll "Poll question" "Option1" "Option2" "Option3"</b></h3>
+            <h3>Example:<b> /poll "Which design is best?" "Mike's design" "Anna's design" "My design"</b></h3>
+        </div>
+        <hr class="featurette-divider">
+
+        <!-- First Featurette -->
+        <div class="featurette" id="about">
+            <img class="featurette-image img-circle img-responsive pull-right" src="{% static 'main/images/exhibit1.png' %}">
+            <h2 class="featurette-heading">Simple, native polls right within Slack.</h2>
+            <p class="lead">See that awesome simple poll? You can make your own one just like it by typing: <br /><b>/poll "Where should we go for lunch?" "Subway" "That burrito place" "The micro kitchen"</b><br />And boooom everybody can vote on what place would be best for lunch today!</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Second Featurette -->
+        <div class="featurette" id="services">
+            <img class="featurette-image img-circle img-responsive pull-left" src="{% static 'main/images/exhibit2.png' %}">
+            <h2 class="featurette-heading">Emoji powered</h2>
+            <p class="lead">Simple Poll is powered by emoji, because who doesn't love emoji?!?<img src="{% static 'main/images/tongue.png' %}" height="21px" width="21px"><img src="{% static 'main/images/joy.png' %}" height="21px" width="21px"><img src="{% static 'main/images/hands.png' %}" height="21px" width="21px"><br />
+            With Simple Poll you can have up to <img src="{% static 'main/images/ten.png' %}" height="21px" width="21px"> different options!</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Third Featurette -->
+        <div class="col-lg-12 text-center">
+            <h2 class="featurette-heading">Watch the video.</h2>
+            <iframe width="70%" height="500" src="https://www.youtube.com/embed/G6C9v6gvCs4" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Simple Poll 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{% static 'main/startbootstrap/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'main/startbootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
