@@ -5,3 +5,4 @@ requests==2.4.3
 dj-database-url==0.3.0
 psycopg2==2.5.4
 whitenoise==2.0.6
+newrelic

@@ -40,7 +40,6 @@ def oauthcallback(request):
 
     r = requests.get(url, params=data)
     query_result = r.json()
-    print query_result
     if query_result["ok"]:
         access_token = query_result["access_token"]
         team_name = query_result["team_name"]
@@ -81,15 +80,16 @@ def poll(request):
             return HttpResponseBadRequest("400 Request is not signed correctly!")
     data = request.POST["text"]
 
+    data = data.replace(u'\u201C', '"')
+    data = data.replace(u'\u201D', '"')
+
     items = data.split('"')
 
-    print "items:", items
     question = items[1]
     options = []
     for i in range(1, len(items)+1):
         if i % 2 == 0 and i > 2:
             options.append(items[i-1])
-    print "Options", options
     # all data ready for initial message at this point
 
     numbers = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "keycap_ten"]
@@ -100,7 +100,7 @@ def poll(request):
         text = "*" + question + "*\n\n"
         for option in range(0, len(options)):
             toAdd = ":" + numbers[option] + ":" + options[option] + "\n"
-            text += str(toAdd)
+            text += unicode(toAdd)
 
         postMessage_url = "https://slack.com/api/chat.postMessage"
         postMessage_params = {
@@ -112,7 +112,6 @@ def poll(request):
         }
         text_response = requests.post(postMessage_url, params=postMessage_params)
 
-        print "Post message response:", text_response.text
         return text_response.json()["ts"]  # return message timestamp
 
     class ChannelDoesNotExist(Exception):
@@ -137,9 +136,11 @@ def poll(request):
 
         add_reaction = requests.get(reactions_url, params=reactions_params)
 
-        print "Reaction add response", add_reaction.text
-
     for option in range(0, len(options)):
         addNumberReaction(numbers[option])
 
     return HttpResponse()  # Empty 200 HTTP response, to not display any additional content in Slack
+
+
+def privacy_policy(request):
+    return render(request, "main/privacy-policy.html")
