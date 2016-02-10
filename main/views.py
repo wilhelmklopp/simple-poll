@@ -99,7 +99,7 @@ def poll(request):
         text = ""
         text = "*" + question + "*\n\n"
         for option in range(0, len(options)):
-            toAdd = ":" + numbers[option] + ":" + options[option] + "\n"
+            toAdd = ":" + numbers[option] + ": " + options[option] + "\n"
             text += unicode(toAdd)
 
         postMessage_url = "https://slack.com/api/chat.postMessage"
